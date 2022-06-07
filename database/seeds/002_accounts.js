@@ -2,7 +2,8 @@
 exports.seed = function (knex) {
   return knex('accounts')
     .del()
-    .then(() => knex('accounts').insert([{
+    .then(() => knex('accounts').insert([
+      {
       owner: 'dev@tooljet.io',
       companyName: 'Reciprocity',
       website: 'http://www.reciprocitylabs.com/',
