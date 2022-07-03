@@ -27,6 +27,6 @@ services:
       - POSTGRES_DEV_PASSWORD=${POSTGRES_DEV_PASSWORD}
       - POSTGRES_DEV_DATABASE=${POSTGRES_DEV_DATABASE}
       - POSTGRES_DEV_HOST=db
-    command: sh -c "npm run migrate && npm run seed && node index.js"
+    command: sh -c "npm run migrate && node index.js"
 volumes:
   data: {}
