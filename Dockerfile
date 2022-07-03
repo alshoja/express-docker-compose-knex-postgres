@@ -1,12 +1,13 @@
 FROM node:16.15-alpine3.14
 WORKDIR /app
 
-COPY package.json .
+COPY package*.json ./
 
+RUN npm install -g npm@8.5.5
 RUN npm install
 
-COPY /app .
+COPY ./src .
 
-EXPOSE 3000
+EXPOSE 5000
 
-CMD [ "npm", "start" ]
+CMD node index.js

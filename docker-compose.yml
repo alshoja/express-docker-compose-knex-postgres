@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+  db:
+    container_name: tool_db
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=${POSTGRES_DEV_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_DEV_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DEV_DATABASE}
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  web:
+    container_name: tool_web
+    build: .
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "5000:5000"
+    links:
+      - "db"
+    environment:
+      - POSTGRES_DEV_USER=${POSTGRES_DEV_USER}
+      - POSTGRES_DEV_PASSWORD=${POSTGRES_DEV_PASSWORD}
+      - POSTGRES_DEV_DATABASE=${POSTGRES_DEV_DATABASE}
+      - POSTGRES_DEV_HOST=db
+    command: sh -c "npm run migrate && npm run seed && node index.js"
+volumes:
+  data: {}

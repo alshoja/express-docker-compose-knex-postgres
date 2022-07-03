@@ -6,7 +6,9 @@
   "scripts": {
     "test": "DB_ENV=testing jest --watch --verbose",
     "server": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "migrate": "npx knex migrate:latest",
+    "seed": "npx knex seed:run"
   },
   "jest": {
     "testEnvironment": "node"
@@ -28,8 +30,7 @@
     "express": "^4.17.1",
     "knex": "^0.20.4",
     "morgan": "^1.9.1",
-    "pg": "^8.0.3",
-    "pm2": "^5.2.0"
+    "pg": "^8.7.3"
   },
   "devDependencies": {
     "cross-env": "^6.0.3",
