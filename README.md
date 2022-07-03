@@ -1,4 +1,4 @@
-# express-knex-postgres-boilerplate-Tooljet
+# express-knex-postgres-docker-boilerplate-
 
 Boilerplate code for quick setup for CRUD applications using express/knex/postgres/jest/supertest
 
@@ -33,6 +33,11 @@ In terminal run the following commands:
 ### Windows
 
 If you dont have postgres follow this link: https://www.2ndquadrant.com/en/blog/pginstaller-install-postgresql/
+
+### Docker 
+
+1. ```docker-compose up``` -- will start the server by migrate and seed
+
 
 #### Create dev and test databases (Windows)
 
